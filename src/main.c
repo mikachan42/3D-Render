@@ -61,20 +61,20 @@ void line(SDL_Renderer* renderer, float x1, float y1, float x2, float y2, float 
 
 void terminate() {
     printf("debugggggging");
-    // Warten bis Fenster geschlossen wird — ohne Wayland zu blockieren
+    // Wait for windows to close, without blocking Wayland
     SDL_Event event;
     int running = 1;
     while (running) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = 0;
-            if (event.type == SDL_KEYDOWN) running = 0; // Taste zum Beenden
+            if (event.type == SDL_KEYDOWN) running = 0; // exit button
         }
-        SDL_Delay(16); // ~60fps, CPU schonen
+        SDL_Delay(16); // ~60fps, CPU Conservation
     }
 
     SDL_DestroyRenderer(renderer); // gibt Renderer und seinen Speicher frei
-    SDL_DestroyWindow(window); // schliesst Fenster und gibt es frei
-    SDL_Quit(); // faehrt SDL komplett runter, gibt alle internen Ressourcen frei
+    SDL_DestroyWindow(window); // frees up renderer and its memory
+    SDL_Quit(); // Shuts down SDL, frees up all internal resources
 }
 
 
