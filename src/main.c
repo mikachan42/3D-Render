@@ -72,8 +72,8 @@ void terminate() {
         SDL_Delay(16); // ~60fps, CPU Conservation
     }
 
-    SDL_DestroyRenderer(renderer); // gibt Renderer und seinen Speicher frei
-    SDL_DestroyWindow(window); // frees up renderer and its memory
+    SDL_DestroyRenderer(renderer); // frees up renderer and its memory
+    SDL_DestroyWindow(window); // closes windows and releases it
     SDL_Quit(); // Shuts down SDL, frees up all internal resources
 }
 
@@ -148,12 +148,6 @@ void rotate_xz(Point3D pyramid[8], float current_angle) {
         // y-rotation
         pyramid[i].x = original_x * c - pyramid[i].z * s;
         pyramid[i].z = original_x * s + pyramid[i].z * c;
-
-        // z-rotation
-      //  pyramid[i].x = original_x * c - pyramid[i].y * s;
-      //  pyramid[i].y = original_x * s + pyramid[i].y * c;
-
-        
     }
 }
 
@@ -176,7 +170,7 @@ void frame() {
     for (int i = 0; i < 6; i++) {
         Point2D projected = project(pyramid[i]);
         Point2D pixel = screen(projected);
-      //  point_rect(renderer, pixel.x, pixel.y);
+    //  point_rect(renderer, pixel.x, pixel.y);
     }
 
 
