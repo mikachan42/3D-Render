@@ -125,7 +125,7 @@ int Faces[8][3] = {
 
 void translate_z(Point3D pyramid[8], float current_dz) {
     for(int i = 0; i < 8; i++) {
-      //  pyramid[i] = Points[i];
+    //  pyramid[i] = Points[i];
         pyramid[i].z += 30.0f;
     }
 }
@@ -139,7 +139,6 @@ void rotate_xz(Point3D pyramid[8], float current_angle) {
         pyramid[i] = Points[i];
         float original_x = pyramid[i].x;
         float original_y = pyramid[i].y;
-        float original_z = pyramid[i].z;
 
         // x-rotation
         pyramid[i].y = original_y * c - pyramid[i].z * s;
