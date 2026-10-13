@@ -169,7 +169,7 @@ void frame() {
     for (int i = 0; i < 6; i++) {
         Point2D projected = project(pyramid[i]);
         Point2D pixel = screen(projected);
-    //  point_rect(renderer, pixel.x, pixel.y);
+        point_rect(renderer, pixel.x, pixel.y);
     }
 
 
