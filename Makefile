@@ -8,6 +8,7 @@ SRC = src/main.c
 all: $(TARGET)
 
 $(TARGET): $(SRC)
+	mkdir -p build
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET) $(SDL_FLAGS) -lm
 
 clean:
