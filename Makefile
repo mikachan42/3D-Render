@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
+CFLAGS = -Wall -Wextra -std=c11 -Iinclude
 SDL_FLAGS = $(shell sdl2-config --cflags --libs)
 
 TARGET = build/render
-SRC = src/main.c
+SRC = src/main.c src/mesh.c
 
 all: $(TARGET)
 

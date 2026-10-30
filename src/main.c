@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <math.h>
+#include "mesh.h"
 
 const float screenWidth = 800.0f;
 const float screenHeight = 800.0f;
@@ -19,16 +20,7 @@ float angle = 0;
 const float pi = 3.14f;
 
 
-typedef struct {
-    float x;
-    float y;
-} Point2D;
 
-typedef struct {
-    float x;
-    float y;
-    float z;
-} Point3D;
 
 
 void init() {
@@ -98,32 +90,11 @@ Point2D screen(Point2D p) {
     return result;
 }
 
-Point3D Points[6] = {
-        {10.0f, -11.0f, -10.0f},
-        {10.0f, 9.0f, -10.0f},
-        {0.0f, -1.0f, 10.0f},
-        {-10.0f, 9.0f, -10.0f},
-        {-10.0f, -11.0f, -10.0f},
 
-        {0.0f, -1.0f, -10.0f},
-    };
-
-
-
-int Faces[8][3] = {
-    {0, 1, 2},
-    {1, 3, 2},
-    {3, 4, 2},
-    {4, 0, 2},
-    {1, 0, 5},
-    {3, 1, 5},
-    {4, 3, 5},
-    {0, 4, 5}
-};
  
 
 
-void translate_z(Point3D pyramid[8], float current_dz) {
+void translate_z(Point3D pyramid[6], float current_dz) {
     for(int i = 0; i < 8; i++) {
     //  pyramid[i] = Points[i];
         pyramid[i].z += 30.0f;
@@ -131,7 +102,7 @@ void translate_z(Point3D pyramid[8], float current_dz) {
 }
 
 
-void rotate_xz(Point3D pyramid[8], float current_angle) {
+void rotate_xz(Point3D pyramid[6], float current_angle) {
     const float c = cosf(-current_angle);
     const float s = sinf(-current_angle);
 
